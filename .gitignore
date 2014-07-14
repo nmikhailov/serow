@@ -24,3 +24,7 @@ _testmain.go
 
 # Vim temporary files
 *.swp
+
+.godoc
+
+.docpid
