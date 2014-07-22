@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/serow/serow.svg)](https://travis-ci.org/serow/serow)
+
 serow
 =====
 
