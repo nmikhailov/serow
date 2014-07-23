@@ -1,0 +1,42 @@
+FORMAT: 1A
+HOST: http://www.google.com
+
+# Serow
+Serow API
+
+## Users [/users]
+### List all visble users [GET]
++ Request (application/json)
+
+    + Header
+    
+            Serow-Token: abcdefgh0123456789
+    
+    + Body
+    
+            {
+                XXX
+            }
+
++ Response 200 (application/json)
+
+        {
+            "timestamp": 123123
+        }
+
+### Create new user [POST]
++ Request (application/json)
+    + Body
+    
+            {
+                "name": "user",
+                "passwd": "password"
+            }
+
++ Response 200 (application/json)
+
+        {
+            "timestamp": 123123
+        }
+
++ Response 400 (application/json)
