@@ -1,6 +1,7 @@
 language: go
-
 go:
-  - 1.0
-  - 1.1
-  - tip
+- 1.1
+after_script: '[ "${TRAVIS_PULL_REQUEST}" = "false" ] && ./scripts/ci-postinstall.sh'
+env:
+  global:
+    secure: ndSXXJVQBqG4dWC2HyxyCo7GaOGhip1JEIgpbJ/X5i1FFr2OrWIQuT2/CjLn+qYS65+9RBpzEbPjfLCKtqmpTYflaeXZHcjn6sdO/73jwaPMkx/nWesGb/ig4kz9YlxRGwkad3utlVZu9R4CL+59uMWV9N+DRMDWYeLT8lNi64w=
