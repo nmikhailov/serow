@@ -1,29 +1,14 @@
 FORMAT: 1A
-HOST: http://www.google.com
+//HOST: http://www.google.com
 
 # Serow
 Serow API
 
-## Users [/users]
-### List all visble users [GET]
-+ Request (application/json)
 
-    + Header
-    
-            Serow-Token: abcdefgh0123456789
-    
-    + Body
-    
-            {
-                XXX
-            }
+# Group Users
+Group of all user-related resources.
 
-+ Response 200 (application/json)
-
-        {
-            "timestamp": 123123
-        }
-
+## Create user [/users]
 ### Create new user [POST]
 + Request (application/json)
     + Body
@@ -40,3 +25,95 @@ Serow API
         }
 
 + Response 400 (application/json)
+
+## User operations [/users/{id}]
++ Parameters
+    + id (number, `1`) ... An unique identifier of the user.
+    
+
+### Get user [GET]
++ Request (application/json)
+    + Header
+    
+                Serow-Token: abcdefgh0123456789
+
++ Response 200 (application/json)
+
+            {
+                id: "1",
+                default_currency: "USD",
+                name: "Ivan",
+                total_ammount: "123"
+            }
+
++ Response 401 (application/json)
+
++ Response 404 (application/json)
+
+### Delete user [DELETE]
++ Request (application/json)
+    + Body
+    
+            {
+                "name": "user",
+                "passwd": "password"
+            }
+
++ Response 200 (application/json)
+
+        {
+            "timestamp": 123123
+        }
+
++ Response 403 (application/json)
+
+### Update user [POST]
++ Request (application/json)
+    + Header
+    
+                Serow-Token: abcdefgh0123456789
+
+    + Body
+    
+            {
+                default_currency: "USD",
+                name: "Ivan",
+                total_ammount: "123"
+            }
+            
++ Response 200 (application/json)
+
+        {
+            "timestamp": 123123
+        }
+
++ Response 400 (application/json)
+
+## All users operations [/users{?limit,offset,since}]
+### List all visble users [GET]
++ Parameters
+    + limit  = `20` (optional, number)      ... The maximum number of results to return.
+    + offset = `0` (optional, number)       ... Results offset.
+    + since  = `0` (optional, timestamp)    ... Changes since this timestamp.
++ Request (application/json)
+    + Header
+    
+                Serow-Token: abcdefgh0123456789
+
++ Response 200 (application/json)
+    + Body
+    
+            {
+                count: 4,
+                update: [{
+                        id: "1",
+                        default_currency: "USD",
+                        name: "Ivan",
+                        total_ammount: "123"
+                    }, 
+                    ...
+                ],
+                remove: [12,13,14,.. ],
+                timestamp: 123123
+            }
+        
